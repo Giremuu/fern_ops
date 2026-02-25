@@ -1,0 +1,53 @@
+# -------------------------
+# Terraform
+# -------------------------
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+.terraform.lock.hcl
+
+# Terraform variables (secrets)
+*.tfvars
+!terraform.tfvars.example
+
+# -------------------------
+# Ansible
+# -------------------------
+*.retry
+*.log
+
+# Inventory sensibles (si contiennent IP / secrets)
+ansible/inventory/*.ini
+!ansible/inventory/*.example
+
+# -------------------------
+# SSH / keys / secrets
+# -------------------------
+*.pem
+*.key
+*.ppk
+id_rsa
+id_ed25519
+*.env
+
+# -------------------------
+# OS / IDE
+# -------------------------
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# -------------------------
+# Archives / temp
+# -------------------------
+*.tar.gz
+*.zip
+*.tmp
+*.bak
