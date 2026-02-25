@@ -19,6 +19,7 @@ Fern_Ops is a cloud project focused on Infrastructure-as-Code (IaC). The goal is
 
 ## Structure of the project
 
+```markdown
 fern-ops/
 ├── terraform/
 │   ├── main.tf
@@ -36,6 +37,7 @@ fern-ops/
 ├── docs/
 │   ├── ...
 └── README.md
+```
 
 ## Workflow
 
