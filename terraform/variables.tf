@@ -20,12 +20,12 @@ variable "tags" {
 
 variable "aws_region" {
   type        = string
-  description = "AWS region (e.g., eu-west-3)"
+  description = "AWS region"
 }
 
 variable "availability_zone" {
   type        = string
-  description = "AWS availability zone (e.g., eu-west-3a)"
+  description = "AWS availability zone"
 }
 
 variable "aws_vpc_id" {
@@ -35,12 +35,12 @@ variable "aws_vpc_id" {
 
 variable "public_subnet_cidr_block" {
   type        = string
-  description = "CIDR for public subnet (e.g., 10.0.1.0/24)"
+  description = "CIDR for public subnet"
 }
 
 variable "private_subnet_cidr_block" {
   type        = string
-  description = "CIDR for private subnet (e.g., 10.0.2.0/24)"
+  description = "CIDR for private subnet"
 }
 
 variable "ssh_cidr_blocks" {
