@@ -1,27 +1,19 @@
-###############################################################################
-# outputs.tf
-###############################################################################
-
-output "public_subnet_id" {
-  value = aws_subnet.public.id
+output "nginx_public_ip" {
+  description = "Public IP of nginx / NAT instance (SSH entry point)"
+  value       = aws_instance.nginx.public_ip
 }
 
-output "private_subnet_id" {
-  value = aws_subnet.private.id
+output "nginx_private_ip" {
+  description = "Private IP of nginx"
+  value       = aws_instance.nginx.private_ip
 }
 
-output "sg_bastion_id" {
-  value = aws_security_group.bastion.id
+output "uptime_kuma_private_ip" {
+  description = "Private IP of Uptime Kuma instance"
+  value       = aws_instance.uptime_kuma.private_ip
 }
 
-output "sg_nginx_id" {
-  value = aws_security_group.nginx.id
-}
-
-output "sg_private_id" {
-  value = aws_security_group.private.id
-}
-
-output "nat_gateway_id" {
-  value = aws_nat_gateway.this.id
+output "prometheus_grafana_private_ip" {
+  description = "Private IP of Prometheus/Grafana instance"
+  value       = aws_instance.prometheus_grafana.private_ip
 }

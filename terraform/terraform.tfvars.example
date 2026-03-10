@@ -1,0 +1,4 @@
+aws_region   = "eu-west-3"
+project_name = "fernops"
+
+my_ip = "Your_IP_PUB/32"
