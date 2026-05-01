@@ -20,7 +20,7 @@ crash.*.log
 *.log
 ansible/
 
-# Inventory sensibles (si contiennent IP / secrets)
+# Inventory sensibles
 ansible/inventory/*.ini
 !ansible/inventory/*.example
 
