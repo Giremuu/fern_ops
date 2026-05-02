@@ -1,0 +1,7 @@
+---
+- ansible.builtin.include_tasks: system.yml
+- ansible.builtin.include_tasks: docker.yml
+- ansible.builtin.include_tasks: unattended_upgrades.yml
+- ansible.builtin.include_tasks: hardening.yml
+- ansible.builtin.include_tasks: nat.yml
+  when: "'nginx' in group_names"
