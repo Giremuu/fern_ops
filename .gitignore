@@ -18,7 +18,6 @@ crash.*.log
 # -------------------------
 *.retry
 *.log
-ansible/
 
 # Inventory sensibles
 ansible/inventory/*.ini
