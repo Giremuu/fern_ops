@@ -76,6 +76,7 @@ fern_ops/
 - Ansible >= 2.12
 - AWS CLI configured (`~/.aws/credentials`)
 - SSH key registered in AWS
+- `curl -s ifconfig.me` for our public IP
 
 ### 1. Provision the infrastructure
 

@@ -1,14 +1,20 @@
 ---
 # Play 1 - Nginx first: sets up NAT so private instances can reach internet
 - name: Setup nginx instance
+  vars_files:
+    - vars/docker_version.yml
   hosts: nginx
   become: true
   roles:
     - base
+    - node_exporter
 
 # Play 2 - Private instances can now reach internet via NAT
 - name: Base setup on private instances
   hosts: monitoring:uptime_kuma
   become: true
+  vars_files:
+    - vars/docker_version.yml
   roles:
     - base
+    - node_exporter

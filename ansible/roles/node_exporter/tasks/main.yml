@@ -1,0 +1,23 @@
+---
+- name: Create node_exporter directory
+  ansible.builtin.file:
+    path: /opt/node_exporter
+    state: directory
+    owner: ubuntu
+    group: ubuntu
+    mode: '0755'
+
+- name: Deploy docker-compose
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: /opt/node_exporter/docker-compose.yml
+    owner: ubuntu
+    group: ubuntu
+    mode: '0644'
+  notify: Restart node_exporter
+
+- name: Start node_exporter
+  community.docker.docker_compose_v2:
+    project_src: /opt/node_exporter
+    state: present
+  become_user: ubuntu
