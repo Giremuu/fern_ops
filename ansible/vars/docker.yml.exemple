@@ -1,0 +1,5 @@
+node_exporter_version: "x.x.x"
+prometheus_version: "x.x.x"
+prometheus_port: "x.x.x"
+grafana_version: "x.x.x"
+uptime_kuma_version: "x.x.x"

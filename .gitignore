@@ -18,7 +18,7 @@ crash.*.log
 # -------------------------
 *.retry
 *.log
-ansible/vars/docker_version.yml
+ansible/vars/docker.yml
 
 # Inventory sensibles
 ansible/inventory/*.ini

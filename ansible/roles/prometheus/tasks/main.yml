@@ -1,0 +1,32 @@
+---
+- name: Create Prometheus directory
+  ansible.builtin.file:
+    path: /opt/prometheus
+    state: directory
+    owner: ubuntu
+    group: ubuntu
+    mode: '0755'
+
+- name: Deploy prometheus config
+  ansible.builtin.template:
+    src: prometheus.yml.j2
+    dest: /opt/prometheus/prometheus.yml
+    owner: ubuntu
+    group: ubuntu
+    mode: '0644'
+  notify: Restart prometheus
+
+- name: Deploy docker-compose
+  ansible.builtin.template:
+    src: docker-compose.yml.j2
+    dest: /opt/prometheus/docker-compose.yml
+    owner: ubuntu
+    group: ubuntu
+    mode: '0644'
+  notify: Restart prometheus
+
+- name: Start prometheus
+  community.docker.docker_compose_v2:
+    project_src: /opt/prometheus
+    state: present
+  become_user: ubuntu
