@@ -1,7 +1,7 @@
 ---
-- name: Create node_exporter directory
+- name: Create Uptime Kuma directory
   ansible.builtin.file:
-    path: /opt/node_exporter
+    path: /opt/uptime-kuma
     state: directory
     owner: ubuntu
     group: ubuntu
@@ -10,13 +10,13 @@
 - name: Deploy docker-compose
   ansible.builtin.template:
     src: docker-compose.yml.j2
-    dest: /opt/node_exporter/docker-compose.yml
+    dest: /opt/uptime-kuma/docker-compose.yml
     owner: ubuntu
     group: ubuntu
     mode: '0644'
-  notify: Restart node_exporter
+  notify: Restart uptime-kuma
 
-- name: Start node_exporter
+- name: Start uptime-kuma
   community.docker.docker_compose_v2:
-    project_src: /opt/node_exporter
+    project_src: /opt/uptime-kuma
     state: present

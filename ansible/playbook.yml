@@ -1,10 +1,10 @@
 ---
 # Play 1 - Nginx first: sets up NAT so private instances can reach internet
 - name: Setup nginx instance
-  vars_files:
-    - vars/docker.yml
   hosts: nginx
   become: true
+  vars_files:
+    - vars/docker.yml
   roles:
     - base
     - node_exporter
@@ -19,10 +19,22 @@
     - base
     - node_exporter
 
+# Play 3 - Monitoring stack
 - name: Deploy monitoring stack
   hosts: monitoring
   become: true
   vars_files:
     - vars/docker.yml
+    - vars/vault.yml
   roles:
     - prometheus
+    - grafana
+
+# Play 4 - Uptime Kuma
+- name: Deploy Uptime Kuma
+  hosts: uptime_kuma
+  become: true
+  vars_files:
+    - vars/docker.yml
+  roles:
+    - uptime_kuma
